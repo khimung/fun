@@ -13,6 +13,14 @@ Apache Maven 3.0.3 (r1075438; 2011-02-28 09:31:09-0800)
 Maven home: /usr/share/maven
 Java version: 1.6.0_51, vendor: Apple Inc.
 
+Database set up
+
+1. install mysql 5
+2. create root user with password root
+3. cd ./fun/schema
+4. apache-maven-2.2.1/bin/mvn db:drop db:create db:schema db:data
+
+
 Execute Steps:
 
 1.  Add to /etc/hosts localhost memcache

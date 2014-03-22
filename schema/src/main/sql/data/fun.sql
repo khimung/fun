@@ -1,4 +1,4 @@
-
+use fun;
 
 INSERT INTO `users`
 (`id`,`gender`,`age`,`username`,`password`,`version`)

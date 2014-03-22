@@ -9,6 +9,6 @@ CREATE TABLE `users` (
   `age` int(20) DEFAULT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `username` (`username`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
 
-CREATE INDEX users_gender ON users.gender ( gender);
+CREATE INDEX users_gender ON users ( gender);

@@ -333,6 +333,7 @@
 		<!-- WebTest dependency versions -->
 		<webtest.version>3.0</webtest.version>
 		
+		<db.name>fun</db.name>
 		<jdbc.base.url>jdbc:mysql://localhost:3306</jdbc.base.url>
 	
 		<!-- Database settings -->
