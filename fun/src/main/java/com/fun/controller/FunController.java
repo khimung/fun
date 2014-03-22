@@ -29,7 +29,7 @@ public class FunController {
 	@Autowired
 	private IJdbcHandler jdbcHandler;
 
-	@RequestMapping(value = "/auth", method = RequestMethod.POST, headers = "content-type=application/json")
+	@RequestMapping(value = "/{version}/auth", method = RequestMethod.POST, headers = "content-type=application/json")
 	public @ResponseBody String auth(@RequestBody User user) throws Exception {
 		System.out.println(user.getUsername());
         SessionDTO sessionDTO = userManager.authenticate(user.getUsername(), user.getPassword());
@@ -39,13 +39,13 @@ public class FunController {
         return "{\"result\":\"success\"}";
 	}
 
-	@RequestMapping(value = "/users/{version}/{gender}", method = RequestMethod.GET)
+	@RequestMapping(value = "/{version}/users/{gender}", method = RequestMethod.GET)
 	public @ResponseBody List<User> users(@PathVariable("version") String version, @RequestParam(value = "start", required = false, defaultValue = "0") Integer start, @PathVariable("gender") String gender) throws Exception {
 		List<User> users = userManager.findByGenderGroupByAge(gender, "age", start);
         return users;
 	}
 	
-	@RequestMapping(value="/resource/{version}", method=RequestMethod.GET)
+	@RequestMapping(value="/{version}/resource", method=RequestMethod.GET)
 	public @ResponseBody String resource(@PathVariable("version") String version, @RequestParam("type") String server) throws Exception {
 		if("mysql".equals(server.toLowerCase())){
 			return "{\"result\":\"" + jdbcHandler.isAlive() + "\"}";
@@ -53,7 +53,7 @@ public class FunController {
 		return "{\"result\":\"unknown resource\"}";
 	}
 	
-	@RequestMapping(value="/listDir/{version}", method=RequestMethod.GET)
+	@RequestMapping(value="/{version}/listDir", method=RequestMethod.GET)
 	public @ResponseBody String[] listDir(@PathVariable("version") String version, @QueryParam("path") String path) throws Exception {
 		if(StringUtils.isEmpty(path)){
 			return new String[]{};	

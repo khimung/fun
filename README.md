@@ -32,10 +32,16 @@ Execute Steps:
 
 Endpoints:
 
-localhost:9090/fun/auth
-localhost:9090/fun/resources?type=mysql
-localhost:9090/fun/users/F?start=0
-localhost:9090/fun/listDir?path=/var/log
+localhost:9090/fun/1.0/auth
+localhost:9090/fun/1.0/resources?type=mysql
+localhost:9090/fun/1.0/users/F?start=0
+localhost:9090/fun/1.0/listDir?path=/var/log
+
+Endpoint strategy.
+
+I want to create a versioned endpoint that will allow for dynamically switching implementations based on the version.
+
+
 
 I like maven because of its simple yet robust capbilities due to the community contributed plugins that creates ease for many operations.  Maven lets you create environment specific profiles so that you can build to any environment with a simple command line.  I can easily start up my app in jetty or deploy it to tomcat.  The format of the maven pom file are simple and easy to read.  The directory structures are standard which removes the unnecessary step of figuring out where files are located.  Maven also has db tools to help managed updating existing database schemas.
 
