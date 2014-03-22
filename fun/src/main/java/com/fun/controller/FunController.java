@@ -1,11 +1,8 @@
 package com.fun.controller;
 
-import java.io.BufferedReader;
 import java.io.File;
-import java.io.InputStreamReader;
 import java.util.List;
 
-import javax.ws.rs.DefaultValue;
 import javax.ws.rs.QueryParam;
 
 import org.apache.cxf.common.util.StringUtils;
@@ -42,22 +39,22 @@ public class FunController {
         return "{\"result\":\"success\"}";
 	}
 
-	@RequestMapping(value = "/users/{gender}", method = RequestMethod.GET)
-	public @ResponseBody List<User> users(@RequestParam(value = "start", required = false, defaultValue = "0") Integer start, @PathVariable("gender") String gender) throws Exception {
+	@RequestMapping(value = "/users/{version}/{gender}", method = RequestMethod.GET)
+	public @ResponseBody List<User> users(@PathVariable("version") String version, @RequestParam(value = "start", required = false, defaultValue = "0") Integer start, @PathVariable("gender") String gender) throws Exception {
 		List<User> users = userManager.findByGenderGroupByAge(gender, "age", start);
         return users;
 	}
 	
-	@RequestMapping(value="/resource", method=RequestMethod.GET)
-	public @ResponseBody String resource(@RequestParam("type") String server) throws Exception {
+	@RequestMapping(value="/resource/{version}", method=RequestMethod.GET)
+	public @ResponseBody String resource(@PathVariable("version") String version, @RequestParam("type") String server) throws Exception {
 		if("mysql".equals(server.toLowerCase())){
 			return "{\"result\":\"" + jdbcHandler.isAlive() + "\"}";
 		}
 		return "{\"result\":\"unknown resource\"}";
 	}
 	
-	@RequestMapping(value="/listDir", method=RequestMethod.GET)
-	public @ResponseBody String[] listDir(@QueryParam("path") String path) throws Exception {
+	@RequestMapping(value="/listDir/{version}", method=RequestMethod.GET)
+	public @ResponseBody String[] listDir(@PathVariable("version") String version, @QueryParam("path") String path) throws Exception {
 		if(StringUtils.isEmpty(path)){
 			return new String[]{};	
 		}

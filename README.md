@@ -38,3 +38,6 @@ localhost:9090/fun/users/F?start=0
 localhost:9090/fun/listDir?path=/var/log
 
 
+The reason I choose maven, mysql, spring rest, jetty is because I am most familiar with these and have used it in most of my projects.
+
+
