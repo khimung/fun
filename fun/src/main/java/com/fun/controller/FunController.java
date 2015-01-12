@@ -31,7 +31,6 @@ public class FunController {
 
 	@RequestMapping(value = "/{version}/auth", method = RequestMethod.POST, headers = "content-type=application/json")
 	public @ResponseBody String auth(@RequestBody User user) throws Exception {
-		System.out.println(user.getUsername());
         SessionDTO sessionDTO = userManager.authenticate(user.getUsername(), user.getPassword());
         if(sessionDTO == null){
         	return "{\"result\":\"failed\"}";

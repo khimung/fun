@@ -59,8 +59,7 @@ public class UserDaoHibernate extends GenericDaoHibernate<User, Long> implements
 	 * {@inheritDoc}
 	 */
 	public User saveUser(User user) {
-		Session session = getHibernateTemplate().getSessionFactory()
-				.getCurrentSession();
+		Session session = getHibernateTemplate().getSessionFactory().getCurrentSession();
 		if (log.isDebugEnabled()) {
 			log.debug("user's id: " + user.getId());
 		}

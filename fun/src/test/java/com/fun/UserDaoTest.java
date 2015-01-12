@@ -1,4 +1,4 @@
-package com.lottery.split;
+package com.fun;
 
 import java.util.List;
 

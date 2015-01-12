@@ -197,12 +197,6 @@
 			<version>${spring.version}</version>
 		</dependency>
 		<dependency>
-			<groupId>org.subethamail</groupId>
-			<artifactId>subethasmtp-wiser</artifactId>
-			<version>${wiser.version}</version>
-			<scope>test</scope>
-		</dependency>
-		<dependency>
 			<groupId>velocity</groupId>
 			<artifactId>velocity</artifactId>
 			<version>${velocity.version}</version>
@@ -300,12 +294,6 @@
 			<artifactId>spring-security-config</artifactId>
 			<version>${spring.security.version}</version>
 		</dependency>
-		<dependency>
-			<groupId>org.subethamail</groupId>
-			<artifactId>subethasmtp-wiser</artifactId>
-			<version>${wiser.version}</version>
-			<scope>test</scope>
-		</dependency>
 	</dependencies>
 
 	<!-- Default property -->
@@ -328,7 +316,6 @@
 		<jsp.version>2.1</jsp.version>
 		<junit.version>4.8.2</junit.version>
 		<servlet.version>2.5</servlet.version>
-		<wiser.version>1.2</wiser.version>
 
 		<!-- WebTest dependency versions -->
 		<webtest.version>3.0</webtest.version>
